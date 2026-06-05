@@ -3,6 +3,7 @@ dist
 dist-ssr
 *.local
 .env
+api.env
 .env.local
 .DS_Store
 *.log
