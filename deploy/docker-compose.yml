@@ -1,0 +1,18 @@
+version: "3.8"
+services:
+  kat-portal-api:
+    build:
+      context: ..
+      dockerfile: server/Dockerfile
+    container_name: kat-portal-api
+    env_file:
+      - ./api.env
+    ports:
+      - "127.0.0.1:8787:8787"
+    volumes:
+      - portal_db:/var/lib/kat-portal
+    restart: unless-stopped
+
+volumes:
+  portal_db:
+    driver: local
