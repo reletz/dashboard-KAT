@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===== Brand fonts (lokal) ===== */
+@font-face {
+  font-family: "Geom";
+  src: url("./assets/fonts/Geom-VariableFont_wght.ttf") format("truetype-variations");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Geom";
+  src: url("./assets/fonts/Geom-Italic-VariableFont_wght.ttf") format("truetype-variations");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Redzone";
+  src: url("./assets/fonts/Redzone-BlackReg.otf") format("opentype");
+  font-weight: 400 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  body {
+    font-family: "Geom", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Selection in brand colors */
+  ::selection {
+    background: #49dea7;
+    color: #182f53;
+  }
+}
+
+@layer components {
+  /* Signature OSKM 2026 backdrop — tekstur brand + wash mint tipis biar konten kebaca */
+  .kat-backdrop {
+    background-color: #c7ffe4;
+    background-image:
+      linear-gradient(rgba(199, 255, 228, 0.22), rgba(199, 255, 228, 0.34)),
+      url("./assets/bg.webp");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
+
+  /* Glassmorphic navy panel — the brand card */
+  .glass-panel {
+    background-color: rgba(24, 47, 83, 0.95);
+    border: 2px solid #317890;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 20px 50px -12px rgba(14, 32, 56, 0.55);
+  }
+
+  .glass-panel-soft {
+    background-color: rgba(24, 47, 83, 0.9);
+    border: 1.5px solid rgba(49, 120, 144, 0.6);
+    backdrop-filter: blur(8px);
+  }
+}
+
+@layer utilities {
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+}

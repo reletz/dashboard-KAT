@@ -1,0 +1,49 @@
+[
+  {
+    "bidang": "Operasional",
+    "icon": "📦",
+    "status": "active",
+    "note": "Wajib baca SOP terlebih dahulu sebelum mengisi request.",
+    "sheets": [
+      {
+        "label": "SOP & Request Operasional",
+        "url": "https://docs.google.com/spreadsheets/d/14WN5JU-Mr36fOd8SMxrXLlnTofSkj1bE7OhxjOM9X8U/edit"
+      }
+    ]
+  },
+  {
+    "bidang": "Relasi",
+    "icon": "🤝",
+    "status": "active",
+    "note": "Setelah mengisi request, jangan lupa hubungi CP terkait yah <3",
+    "sheets": [
+      {
+        "label": "Request Penyebaran Informasi",
+        "url": "https://docs.google.com/spreadsheets/d/1BiBCWCx3IBxuaAUmwk3ai_ZTQMIsAV-iz9NzlWrG6Ts/edit"
+      },
+      {
+        "label": "Request Narasumber",
+        "url": "https://docs.google.com/spreadsheets/d/1sUOZ79fxS3IhBGDkiMBPOG9rg0jCoBSbOv-u7DlNV_w/edit"
+      }
+    ]
+  },
+  {
+    "bidang": "Kreatif",
+    "icon": "🎨",
+    "status": "active",
+    "note": "WAJIB baca SOP dulu. Reservasi ke divisi: Grafis, Publikasi, Dokumentasi, Musik, Properti. Jangan melebihi deadline & hubungi CP divisi terkait setelah reservasi.",
+    "sheets": [
+      {
+        "label": "SOP & Reservasi Kreatif",
+        "url": "https://docs.google.com/spreadsheets/d/1qweW1nbVseY0ULkaHkAP-nHqJ-09rTZVC78fEiiKVhM/edit"
+      }
+    ]
+  },
+  {
+    "bidang": "Kesekjenan",
+    "icon": "📋",
+    "status": "coming-soon",
+    "note": "Sheet request Kesekjenan menyusul.",
+    "sheets": []
+  }
+]

@@ -1,0 +1,29 @@
+{
+  "name": "portal-panitia-kat-api",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Backend API (Hono + Drizzle + SQLite) untuk Portal Panitia KAT ITB 2026",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "start": "tsx src/index.ts",
+    "typecheck": "tsc --noEmit",
+    "db:studio": "drizzle-kit studio",
+    "db:generate": "drizzle-kit generate"
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.13.7",
+    "@libsql/client": "^0.14.0",
+    "dotenv": "^16.4.7",
+    "drizzle-orm": "^0.38.3",
+    "fractional-indexing": "^3.2.0",
+    "hono": "^4.6.14",
+    "jose": "^5.9.6"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "drizzle-kit": "^0.30.1",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3"
+  }
+}

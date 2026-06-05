@@ -1,0 +1,38 @@
+# Traefik DYNAMIC config (file provider) untuk Portal Panitia KAT ITB 2026.
+# Taruh di direktori dynamic Traefik, mis. /etc/traefik/dynamic/portal-panitia-kat.yml
+# (sesuaikan dengan `providers.file.directory` di traefik.yml kamu).
+#
+# Arsitektur: Browser → Cloudflare (HTTPS) → Traefik:80 → { nginx statik | node API }.
+# HTTPS diterminasi di Cloudflare, jadi TIDAK ada TLS/certbot di sini.
+#
+# Kunci: router API harus PRIORITY LEBIH TINGGI dari router statik /dashboard,
+# supaya /dashboard/api/* diarahkan ke Node, bukan ditelan SPA fallback nginx.
+
+http:
+  routers:
+    # API → proses Node (Hono) di 127.0.0.1:8787
+    portal-panitia-api:
+      rule: "Host(`kat.naufarrel.dev`) && PathPrefix(`/dashboard/api`)"
+      priority: 100
+      entryPoints:
+        - web # ganti sesuai nama entrypoint :80 milikmu
+      service: portal-panitia-api
+
+    # (Referensi) router statik /dashboard yang sudah ada — JANGAN duplikat kalau
+    # sudah terdefinisi di tempat lain; cukup pastikan priority-nya < 100.
+    # portal-panitia-static:
+    #   rule: "Host(`kat.naufarrel.dev`) && PathPrefix(`/dashboard`)"
+    #   priority: 50
+    #   entryPoints: [web]
+    #   service: portal-panitia-static
+
+  services:
+    portal-panitia-api:
+      loadBalancer:
+        servers:
+          - url: "http://127.0.0.1:8787"
+
+    # portal-panitia-static:
+    #   loadBalancer:
+    #     servers:
+    #       - url: "http://127.0.0.1:8080"   # nginx statik kamu

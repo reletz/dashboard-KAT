@@ -1,0 +1,25 @@
+{
+  "eventName": "KAT ITB 2026",
+  "countdowns": [
+    { "label": "OSKM ITB 2026", "date": "2026-08-19T07:00:00+07:00" },
+    { "label": "OHU 2026", "date": "2026-08-30T07:00:00+07:00" }
+  ],
+  "gcalEmbedUrl": "",
+  "kanbanBidang": [
+    "Ketua",
+    "IT",
+    "HR",
+    "Fundraising",
+    "Operasional",
+    "Lapangan",
+    "Relasi",
+    "Kreatif",
+    "Acara",
+    "Materi dan Metode",
+    "OHU",
+    "Kesekjenan"
+  ],
+  "sc": {
+    "ketua": { "name": "Naufarrel Zhafif Abhista", "line": "nasgortakodkk" }
+  }
+}

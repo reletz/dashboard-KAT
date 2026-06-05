@@ -1,0 +1,32 @@
+# systemd unit untuk API. Salin ke /etc/systemd/system/kat-portal-api.service
+# lalu: sudo systemctl daemon-reload && sudo systemctl enable --now kat-portal-api
+#
+# Asumsi:
+#   - kode backend di /opt/kat-portal-api/server  (isi folder server/ repo ini)
+#   - sudah `npm ci` di folder itu
+#   - secret di /etc/kat-portal/api.env (lihat api.env.example)
+#   - DB di /var/lib/kat-portal/portal.db
+
+[Unit]
+Description=Portal Panitia KAT ITB 2026 — API (Hono + libSQL)
+After=network.target
+
+[Service]
+Type=simple
+User=kat-portal
+Group=kat-portal
+WorkingDirectory=/opt/kat-portal-api/server
+EnvironmentFile=/etc/kat-portal/api.env
+ExecStart=/opt/kat-portal-api/server/node_modules/.bin/tsx src/index.ts
+Restart=on-failure
+RestartSec=3
+
+# Hardening
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+ReadWritePaths=/var/lib/kat-portal
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,12 @@
+# Timer harian untuk backup.
+# sudo systemctl enable --now kat-portal-backup.timer
+
+[Unit]
+Description=Backup harian DB Portal Panitia KAT ITB 2026
+
+[Timer]
+OnCalendar=*-*-* 02:30:00
+Persistent=true
+
+[Install]
+WantedBy=timers.target
