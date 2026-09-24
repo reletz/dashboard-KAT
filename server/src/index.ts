@@ -28,8 +28,8 @@ const app = new Hono();
 app.use("*", logger());
 
 // Same-origin (Cloudflare → Traefik → nginx + node). TANPA CORS — disengaja.
-// Traefik me-rute /dashboard/api/* ke proses ini TANPA strip prefix → mount di sini.
-app.route("/dashboard/api", api);
+// Reverse proxy me-rute /api/* ke proses ini TANPA strip prefix → mount di sini.
+app.route("/api", api);
 
 app.onError((err, c) => {
   if (err instanceof HTTPException) return c.json({ error: err.message }, err.status);
@@ -42,5 +42,5 @@ app.notFound((c) => c.json({ error: "Not found" }, 404));
 const port = Number(process.env.PORT ?? 8787);
 const hostname = process.env.HOST ?? "127.0.0.1";
 serve({ fetch: app.fetch, port, hostname }, (info) => {
-  console.log(`▶ Portal API: http://${info.address}:${info.port}/dashboard/api`);
+  console.log(`▶ Portal API: http://${info.address}:${info.port}/api`);
 });

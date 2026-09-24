@@ -9,7 +9,7 @@ import { Kanban } from "./pages/Kanban";
 import { Calendar } from "./pages/Calendar";
 import { Admin } from "./pages/Admin";
 
-// Vite mengisi BASE_URL dari `base` di vite.config (mis. "/dashboard/").
+// Vite mengisi BASE_URL dari `base` di vite.config (mis. "/").
 // React Router butuh tanpa trailing slash.
 const basename = import.meta.env.BASE_URL.replace(/\/$/, "");
 

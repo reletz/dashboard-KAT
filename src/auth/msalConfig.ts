@@ -15,7 +15,7 @@ export const msalConfig: Configuration = {
     authority: `https://login.microsoftonline.com/${
       import.meta.env.VITE_AZURE_TENANT_ID ?? "common"
     }`,
-    // Termasuk base path (mis. https://kat.naufarrel.dev/dashboard/).
+    // Termasuk base path (mis. https://kat.naufarrel.dev/).
     // URL ini harus didaftarkan PERSIS di Azure → Authentication → Redirect URIs.
     redirectUri:
       typeof window !== "undefined"

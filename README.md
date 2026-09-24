@@ -9,9 +9,9 @@ Visual mengikuti brand asesmen KAT ITB 2026 (forest glassmorphism: mint `#C7FFE4
 ```
 Browser (MSAL id_token)
   → Cloudflare (HTTPS)
-    → Traefik :80
-       ├── /dashboard/api/*  → Node API (Hono + Drizzle + libSQL)   [server/]
-       └── /dashboard/*      → nginx (SPA statis)                    [dist/]
+    → Reverse proxy
+       ├── /api/*  → Node API (Hono + Drizzle + libSQL)   [server/]
+       └── /*      → nginx (SPA statis)                    [dist/]
 ```
 
 - **Frontend** (`src/`): Vite · React · TypeScript · Tailwind · `@azure/msal-react`. Statik.
@@ -34,9 +34,9 @@ Tanpa `.env.local`, portal jalan demo: login dummy, dan API memakai **mock in-me
 # Terminal 1 — API
 cd server && npm install
 cp .env.example .env          # set AUTH_DEV_BYPASS=true untuk dev tanpa Azure
-npm run dev                    # → http://127.0.0.1:8787/dashboard/api
+npm run dev                    # → http://127.0.0.1:8787/api
 
-# Terminal 2 — frontend (vite proxy /dashboard/api → :8787)
+# Terminal 2 — frontend (vite proxy /api → :8787)
 npm run dev
 ```
 
@@ -51,7 +51,7 @@ npm run dev
 ## Build & deploy
 
 ```bash
-npm run build              # frontend → dist/ ; copas ke nginx root (srv/www/dashboard)
+npm run build              # frontend → dist/ ; sajikan dari root (butuh SPA fallback ke /index.html)
 ```
 Backend: image container dibangun dari `server/Dockerfile` (non-root, DB SQLite di `/data`). Infra deployment ada di repo terpisah.
 

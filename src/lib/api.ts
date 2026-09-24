@@ -12,7 +12,7 @@ import type {
   User,
 } from "./types";
 
-// BASE_URL = "/dashboard/" → API di "/dashboard/api". Same-origin (Traefik route).
+// BASE_URL = "/" → API di "/api". Same-origin (reverse proxy route).
 const API_BASE = import.meta.env.BASE_URL.replace(/\/$/, "") + "/api";
 
 export class ApiError extends Error {
