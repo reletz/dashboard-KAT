@@ -53,7 +53,7 @@ npm run dev
 ```bash
 npm run build              # frontend → dist/ ; copas ke nginx root (srv/www/dashboard)
 ```
-Backend: lihat **`deploy/RUNBOOK.md`** (systemd unit, Traefik dynamic config, env, backup, restore, exit ramp). Artefak di `deploy/`.
+Backend: image container dibangun dari `server/Dockerfile` (non-root, DB SQLite di `/data`). Infra deployment ada di repo terpisah.
 
 ## Edit konten
 

@@ -40,6 +40,7 @@ app.onError((err, c) => {
 app.notFound((c) => c.json({ error: "Not found" }, 404));
 
 const port = Number(process.env.PORT ?? 8787);
-serve({ fetch: app.fetch, port, hostname: "127.0.0.1" }, (info) => {
-  console.log(`▶ Portal API: http://127.0.0.1:${info.port}/dashboard/api`);
+const hostname = process.env.HOST ?? "127.0.0.1";
+serve({ fetch: app.fetch, port, hostname }, (info) => {
+  console.log(`▶ Portal API: http://${info.address}:${info.port}/dashboard/api`);
 });

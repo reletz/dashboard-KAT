@@ -1,0 +1,12 @@
+node_modules
+data
+drizzle
+.env
+.env.*
+!.env.example
+*.db
+*.db-wal
+*.db-shm
+*.log
+Dockerfile
+.dockerignore
